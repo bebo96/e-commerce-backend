@@ -19,13 +19,13 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Category,
-        attributes: ['category_name'],
+        attributes: ['id','category_name'],
       },
       {
         model: Tag,
-        attributes: ['tag_name'],
+        attributes: ['id','tag_name'],
         through: ProductTag, 
-        as: 'product_names'
+        as: 'tags'
       }
     ]
   })
@@ -48,17 +48,19 @@ router.get('/:id', (req, res) => {
       'stock',
       'category_id',
     ],
-    where: req.params.id,
+    where: {
+      id: req.params.id
+    },
     include: [
       {
         model: Category,
-        attributes: ['categore_name'],
+        attributes: ['id','category_name'],
       },
       {
         model: Tag,
-        attributes: ['tag_name'],
+        attributes: ['id','tag_name'],
         through: ProductTag, 
-        as: 'product_names'
+        as: 'tags'
       }
     ]
   })
