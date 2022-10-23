@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
       'id',
       'category_name'
     ],
-    order: [['created_at', 'DESC']],
     include: [
       {
         model: Product,

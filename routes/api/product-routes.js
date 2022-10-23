@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
       'stock',
       'category_id',
     ],
-    order: [['created_at', 'DESC']],
     include: [
       {
         model: Category,
